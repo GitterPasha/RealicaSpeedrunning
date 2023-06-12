@@ -24,15 +24,21 @@ def mainview(request):
                 if member.get('top_score') == tulemus:
                     sorted_top_5.append({'name': member.get('name'), 'top_score': tulemus, 'top_accuracy': member.get('top_accuracy')})
 
-        for member in Member.objects.all().values():
-            if member.get('name') == request.user.username:
-                user_tulemus = [member.get('name'), member.get('top_score'), member.get('top_accuracy')]
+        if request.user.username == 'admin':
+            ctx = {
+                'members': sorted_top_5,
+                'tulemus': ['admin', 'liiga hea', '101'],
+            }
 
-        ctx = {
-            'members': sorted_top_5,
-            'tulemus': user_tulemus,
-        }
-        
+        else:
+            for member in Member.objects.all().values():
+                if member.get('name') == request.user.username:
+                    user_tulemus = [member.get('name'), member.get('top_score'), member.get('top_accuracy')]
+            
+            ctx = {
+                'members': sorted_top_5,
+                'tulemus': user_tulemus,
+            }
         return render(request, 'home/home.html', ctx)
     
     else:

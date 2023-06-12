@@ -104,26 +104,7 @@ def testview(request):
                     if member.top_accuracy < score:
                         member.top_accuracy = score
                         member.save()
-
-            # all_members = []
-
-            # for member in Member.objects.all().values():
-            #     all_members.append(member.get('top_score'))
-
-            # all_members.sort()
-
-            # sorted_top_5 = []
-
-            # for tulemus in all_members:
-            #     for member in Member.objects.all().values():
-            #         if member.get('top_score') == tulemus:
-            #             sorted_top_5.append({'name': member.get('name'), 'top_score': tulemus, 'top_accuracy': member.get('top_accuracy')})
-
-            # for member in Member.objects.all().values():
-            #     if member.get('name') == request.user.username:
-            #         user_tulemus = [member.get('name'), member.get('top_score'), member.get('top_accuracy')]
-            # print(user_tulemus)
-
+                        
             ctx = {
                 'timedelta': time,
                 'usertext': request.POST.get('usertext'),

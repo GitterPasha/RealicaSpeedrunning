@@ -16,13 +16,14 @@ def mainview(request):
 
         all_members.sort()
         all_members.reverse()
-
         sorted_top_5 = []
 
         for tulemus in all_members:
             for member in Member.objects.all().values():
                 if member.get('top_score') == tulemus:
                     sorted_top_5.append({'name': member.get('name'), 'top_score': tulemus, 'top_accuracy': member.get('top_accuracy')})
+        
+        sorted_top_5 = [sorted_top_5[0], sorted_top_5[1], sorted_top_5[2], sorted_top_5[3], sorted_top_5[4]]
 
         if request.user.username == 'admin':
             ctx = {

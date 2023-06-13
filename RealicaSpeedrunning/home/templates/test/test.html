@@ -107,7 +107,7 @@
                             {% if not state %}
                                 <form method="post" action="/test/">
                                     {% csrf_token %}
-                                    <button class="startendbutton" type="submit", name="action-start", value="start" style="position: absolute; top: 350px; left: 1130px; width: 100px; ">Alusta testi</button>
+                                    <button class="startendbutton" type="submit", name="action-start", value="start" style="position: absolute; top: 0px; left: 1130px; width: 100px; ">Alusta testi</button>
                                 </form>
                             {% endif %}
                             {% if state %}
@@ -120,10 +120,10 @@
                         </div>
                         {% if usertext %}
                         <div class="textarea" style="position: relative; top: 500px;">
-                            <h4 style="font-size: 25px; font-weight: bold; position: relative; left: 1110px; margin-right: 900px;">
+                            <h4 style="font-size: 25px; font-weight: bold; position: relative; left: 1160px; margin-right: 900px;">
                                 <u>Sinu tulemus:</u>
                             </h4>
-                                <div style="border: 5px solid #35455D; border-radius: 10px; margin-right: 920px; padding: 20px; position: relative; top: 20px; left: 1100px">
+                                <div style="border: 5px solid #35455D; border-radius: 10px; margin-right: 920px; padding: 20px; position: relative; top: 20px; left: 1150px">
                                     <h6 style="font-weight: bold;">Aeg:</h6>
                                         <p>{{ timedelta }} sekundit</p>
                                     {% if score > 0 %}
